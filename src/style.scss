@@ -1,12 +1,72 @@
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
-
 .wp-block-create-block-larris-contact-form {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
-}
+	padding: 20px;
+	border: none;
+	border-radius: 12px;
+	background: #f9f9f9;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	max-width: 500px;
+	margin: auto;
+  }
+  
+  .components-base-control__label {
+	font-size: 1.2rem !important;
+	text-transform: capitalize !important;
+	font-weight: 600;
+	color: #333;
+	margin-bottom: 5px;
+  }
+  
+  .components-text-control__input,
+  .components-textarea-control__input {
+	width: 100%;
+	padding: 12px;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	transition: all 0.3s ease;
+	background: #fff;
+  }
+  
+  .components-text-control__input:focus,
+  .components-textarea-control__input:focus {
+	border-color: #0073aa;
+	box-shadow: 0 0 5px rgba(0, 115, 170, 0.3);
+	outline: none;
+  }
+  
+  .components-textarea-control__input {
+	min-height: 120px;
+	resize: vertical;
+  }
+  
+
+  .components-button.is-primary {
+	padding: 12px 20px;
+	font-size: 1rem;
+	font-weight: 600;
+	color: white;
+	background: #0073aa;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background 0.3s ease, transform 0.2s ease;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+  }
+  
+  .components-button.is-primary:hover {
+	background: #005f87;
+	transform: translateY(-2px);
+  }
+  
+  
+  .components-button.is-primary:active {
+	background: #004b6b;
+	transform: translateY(0);
+  }
+  

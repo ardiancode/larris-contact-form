@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,13 +29,109 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
+
+import { TextControl, TextareaControl, Button, PanelBody, PanelRow, Panel} from '@wordpress/components';
+import { useState } from '@wordpress/element';
+
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Larris Contact Form – hello from the editor!',
-				'larris-contact-form'
-			) }
-		</p>
+		<>
+		<InspectorControls>	
+
+       		<PanelBody title="My Block Settings" initialOpen={ true }>
+           		<PanelRow>My Panel Inputs and Labels</PanelRow>
+				    <TextControl
+					__nextHasNoMarginBottom
+					__next40pxDefaultSize
+					label="First Name"
+					value=""
+					onChange={ () => {} }
+					className='larris-contact-form-email-recipent'
+					/>
+			</PanelBody>
+
+		</InspectorControls>
+		
+		<div { ...useBlockProps() }>
+			<FirstName />
+			<LastName />
+			<EmailSubject />
+			<Message />
+			<SummitBtn />
+		</div>
+		</>
+
 	);
 }
+
+
+
+const FirstName = () => {
+  const [ className, setClassName ] = useState( '' );
+
+  return (
+    <TextControl
+      __nextHasNoMarginBottom
+      __next40pxDefaultSize
+      label="First Name"
+      value={ className }
+      onChange={ ( value ) => setClassName( value ) }
+    />
+  );
+};
+
+const LastName = () => {
+	const [ className, setClassName ] = useState( '' );
+  
+	return (
+	  <TextControl
+		__nextHasNoMarginBottom
+		__next40pxDefaultSize
+		label="Last Name"
+		value={ className }
+		onChange={ ( value ) => setClassName( value ) }
+	  />
+	);
+  };
+
+
+
+  const EmailSubject = () => {
+	const [ className, setClassName ] = useState( '' );
+  
+	return (
+	  <TextControl
+		__nextHasNoMarginBottom
+		__next40pxDefaultSize
+		label="Email Subject"
+		value={ className }
+		onChange={ ( value ) => setClassName( value ) }
+	  />
+	);
+  };
+
+
+  const Message = () => {
+	const [ text, setText ] = useState( '' );
+  
+	return (
+	  <TextareaControl
+		__nextHasNoMarginBottom
+		label="Message"
+		value={ text }
+		onChange={ ( value ) => setText( value ) }
+		rows={7}
+	  />
+	);
+  };
+
+
+const SummitBtn = () => (
+  <Button
+    variant="primary"
+    onClick=""
+  >
+    Summit
+  </Button>
+);
+
